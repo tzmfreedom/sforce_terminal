@@ -98,7 +98,7 @@
 		var getSearchUrl = 	function(sObject,sName){
 								var sQuery = 'SELECT id FROM ' + sObject;
 								if( sName !== 'ALL' ){
-									sQuery += ' WHERE name LIKE '%' + sName + '%'';
+									sQuery += ' WHERE name LIKE \'%' + sName + '%\'';
 								}
 								var records = sforce.connection.query(sQuery).records;
 								var sUrl = '';
