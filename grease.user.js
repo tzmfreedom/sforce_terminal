@@ -14,6 +14,12 @@
             TEST : function(){
                 alert("this is plugin");
             },
+            DELETE : function() {
+                deleteAction();
+            },
+            DEBUG : function() {
+                window.open('/_ui/common/apex/debug/ApexCSIPage');
+            },
             //詳細画面のセクションを開く
             SHOWSECTION : function(){
                 var list = document.getElementsByClassName('showListButton');
@@ -227,21 +233,19 @@
             if( typeof addition[command] === "function" ){
                 return addition[command](commandParam);
             }
-            if( command == 'DELETE'){
-                deleteAction();
-            } else if( param == 'DEBUG'){
-                window.open('/_ui/common/apex/debug/ApexCSIPage');
-            }
         };
 
+        //オブジェクトのprefixを取得
         var getObjectPrefix = function(sObjectName){
             return sforce.connection.describeSObject(sObjectName).keyPrefix;
         };
 
+        //SessionIDを取得
         var getSessionId = function(){
             return document.cookie.substring(document.cookie.indexOf("sid=") + 4, document.cookie.indexOf(";", document.cookie.search("sid=")));
         };
 
+        //キーダウン時の処理
         document.onkeydown = function(e){
             if( !e.ctrlKey || e.keyCode != 77 ){
                 return;
@@ -308,7 +312,8 @@
             }
             if( url != '' ){
                 //window.location.href = url;
-                window.open("terminal_create_view", url);
+                console.log(url);
+                window.open(url, "terminal_create_view");
             }
         };
     };
