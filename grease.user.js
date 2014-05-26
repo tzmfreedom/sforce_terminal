@@ -18,7 +18,7 @@
                 deleteAction();
             },
             DEBUG : function() {
-                window.open('/_ui/common/apex/debug/ApexCSIPage');
+                window.open('/_ui/common/apex/debug/ApexCSIPage', "terminal_create_view" + new Date().getTime());
             },
             //詳細画面のセクションを開く
             SHOWSECTION : function(){
@@ -313,7 +313,7 @@
             if( url != '' ){
                 //window.location.href = url;
                 console.log(url);
-                window.open(url, "terminal_create_view");
+                window.open(url, "terminal_create_view" + new Date().getTime());
             }
         };
     };
